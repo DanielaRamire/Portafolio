@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+
+{% block content %}
+
+{% load static %}
+
+<h1  class="text-center">Mis Proyectos</h1>
+{<div class="container">
+   <div class="row">
+     {% for project in projects %}
+     <div class="col-md-4 mb-4">
+       <div class="card">
+         <img src="{{ project.image.url }}" class="card-img-top" alt="{{ project.title }}">
+         <div class="card-body">
+           <h5 class="card-title">{{ project.title }}</h5>
+           <p class="card-text">{{ project.description }}</p>
+           <p class="card-text">{{ project.tools }}</p>
+           {% if project.url %}
+             <a href="{{ project.url }}" class="btn btn-primary">Ver proyecto</a>
+           {% endif %}
+         </div>
+       </div>
+     </div>
+     {% endfor %}
+   </div>
+ </div>
+{% endblock %}
